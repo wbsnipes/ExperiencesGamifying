@@ -1,0 +1,594 @@
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate}
+% *** CITATION PACKAGES ***
+%
+\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+%\if CLASSINFOpdf
+  \usepackage{graphicx}
+  \usepackage{epstopdf}
+ % \usepackage{auto-pst-pdf}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{./eps}{./pdf/}{./jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.eps,.pdf,.jpeg,.png,.ps}
+%\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+ % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{./eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+ % \DeclareGraphicsExtensions{.eps}
+%\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+\usepackage{balance}
+\usepackage{mdframed}
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools
+
+\begin{document}
+%
+% --- Author Metadata here ---
+\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{Effectiveness of Instant Feedback on Developer Navigation Practices}
+\subtitle{Does Instant Feedback Make Us Better Developers?}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{3} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{
+\alignauthor
+Will Snipes
+\affaddr{ABB Corporate Research}\\
+\affaddr{Industrial Software Systems}\\
+\affaddr{Raleigh, NC USA}\\
+\email{will.snipes@us.abb.com}
+\and
+\alignauthor
+Anil R. Nair
+\affaddr{ABB Corporate Research}\\
+\affaddr{Industrial Software Systems}\\
+\affaddr{Bangalore, India}\\
+\email{anil.nair@in.abb.com}
+\and
+\alignauthor
+Emerson Murphy-Hill
+\affaddr{North Carolina State University}\\
+\affaddr{Department of Computer Science}\\
+\affaddr{Raleigh, N.C. USA}\\
+\email{emerson@csc.ncsu.edu}\\
+}
+
+
+
+\maketitle
+\begin{abstract}
+As software development practices evolve, we face the continuous challenge of communicating new practices and tools to the community.  As developers, we both like to try new things and like to stick with the familiar.  In addition to training, discussing, and presenting software engineering practices and tools, we seek to communicate them through active two-way information embedded in the Integrated Development Environment (IDE).  While communicating, we also collect data on new and current practices and tools used by each developer by recording actions in the IDE.  With a rich data source, we evaluate what practices are used, define metrics that give individual feedback, and create an environment where developers can see how they are doing compared with their teammates.  
+
+This approach helps understand practice and tool use over the long term and judges the lasting change a communication effort makes in everyday habits.  Tool support provides a mechanism to embed into Visual Studio an extension that provides the capture of usage data while giving feedback to users on their practices both in general and specific to the ones being promoted.  Through a points score system that assigns points to specific commands and tools we encourage everyone to use the new practices.  Providing a light score ranking view should help us stay motivated as we compare our command usage to our peers.  To demonstrate how this works, we implement a longitudinal study that demonstrates the results from this approach as we engage with developers over a month-long period.  
+
+Results from this demonstrative study show that in general the approach is <blank> with a few developers <blank> of the study.  The effectiveness of this approach for communicating about practices is demonstrated through the continued use of the commands as we communicate them.  Evaluation of metrics for navigation ratio over time show that developer use the commands <blank> than they did during the benchmarking phase.  The result of the study shows that this method for communicating and promoting software engineering tools and practices <blank>.
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+
+\terms{Theory}
+
+\keywords{ACM proceedings, \LaTeX, text tagging}
+
+\section{Introduction}
+
+
+\section{Study Design}
+Creating a longitudinal study involves defining a long-term goal that is measurable in increments, determining the discrete steps that the study will use to communicate the goal to the participants, distribute interventions to participants, and track participants progress over time.  Many software engineering studies are conducted at discrete points in time via surveys of sampled participants.  Perhaps prior to an intervention, and multiple points following an intervention.  This study demonstrates a method to perform an intervention, continuously monitor the progress of participant response to that intervention, and provide continuous feedback to the participant and researchers about the progress.  Continuous meaning that no information gaps exist in the data collection, there are no periods of unmonitored activity by the participant.  Continuous also applies to the intervention being evaluated, where the participant and researchers receive constant feedback about the conformance to the intervention's purpose.  Studying an intervention in a continuous context determines how sticky the intervention is in the mind of the developer.  It can remove bias that might be introduced by periodic surveys or audits and enhance the habits formed in the participant receiving the intervention.
+
+Designing the study with continuous measurement but no control group presents a traditional study design with some challenges.  We overcame this by dividing the study in to phases where the participants themselves form a control group.  The first phase baselines their activities determining the current state of their practices.  The second phase presents the intervention to the participants.  This phase the participants do not receive continuous feedback on their compliance with the intervention.  This phase simulates the traditional approach of communicating an intervention then returning with an audit to determine whether participants are complaint with it.   The last phases turns on continuous feedback to the participants on their compliance with the intervention.  As they receive the feedback, the participants can determine for themselves how much they are implementing the intervention.  In the last phase they possess complete knowledge of the intervention and their compliance with it making it plausible that they can continuously control their compliance.
+
+Developing the study with the available tooling means that we follow steps as follows.
+1. define the practice we wish to measure compliance with
+2. Develop a mapping of the practice to actions that are captured by the blaze tool from the IDE
+3. Weight the actions according to their importance to the practice and assign points to the actions in the configuration file
+4. Develop the intervention method
+5. Determine the phases and length of the phase in the study according to baseline, intervention, and continuous feedback
+6. Select participants to deploy
+7. Define a pre-study questionnaire if one is necessary to collect associated information
+8. Define a post-study questionnaire if necessary to collect post study information
+9. Communicate with the participants about the study
+10. Execute the study and report results
+
+\subsection{Type Changes and {\subsecit Special} Characters}
+We have already seen several typeface changes in this sample.  You
+can indicate italicized words or phrases in your text with
+the command \texttt{{\char'134}textit}; emboldening with the
+command \texttt{{\char'134}textbf}
+and typewriter-style (for instance, for computer code) with
+\texttt{{\char'134}texttt}.  But remember, you do not
+have to indicate typestyle changes when such changes are
+part of the \textit{structural} elements of your
+article; for instance, the heading of this subsection will
+be in a sans serif\footnote{A third footnote, here.
+Let's make this a rather short one to
+see how it looks.} typeface, but that is handled by the
+document class file. Take care with the use
+of\footnote{A fourth, and last, footnote.}
+the curly braces in typeface changes; they mark
+the beginning and end of
+the text that is to be in the different typeface.
+
+You can use whatever symbols, accented characters, or
+non-English characters you need anywhere in your document;
+you can find a complete list of what is
+available in the \textit{\LaTeX\
+User's Guide}\cite{Lamport:LaTeX}.
+
+\subsection{Math Equations}
+You may want to display math equations in three distinct styles:
+inline, numbered or non-numbered display.  Each of
+the three are discussed in the next sections.
+
+\subsubsection{Inline (In-text) Equations}
+A formula that appears in the running text is called an
+inline or in-text formula.  It is produced by the
+\textbf{math} environment, which can be
+invoked with the usual \texttt{{\char'134}begin. . .{\char'134}end}
+construction or with the short form \texttt{\$. . .\$}. You
+can use any of the symbols and structures,
+from $\alpha$ to $\omega$, available in
+\LaTeX\cite{Lamport:LaTeX}; this section will simply show a
+few examples of in-text equations in context. Notice how
+this equation: \begin{math}\lim_{n\rightarrow \infty}x=0\end{math},
+set here in in-line math style, looks slightly different when
+set in display style.  (See next section).
+
+\subsubsection{Display Equations}
+A numbered display equation -- one set off by vertical space
+from the text and centered horizontally -- is produced
+by the \textbf{equation} environment. An unnumbered display
+equation is produced by the \textbf{displaymath} environment.
+
+Again, in either environment, you can use any of the symbols
+and structures available in \LaTeX; this section will just
+give a couple of examples of display equations in context.
+First, consider the equation, shown as an inline equation above:
+\begin{equation}\lim_{n\rightarrow \infty}x=0\end{equation}
+Notice how it is formatted somewhat differently in
+the \textbf{displaymath}
+environment.  Now, we'll enter an unnumbered equation:
+\begin{displaymath}\sum_{i=0}^{\infty} x + 1\end{displaymath}
+and follow it with another numbered equation:
+\begin{equation}\sum_{i=0}^{\infty}x_i=\int_{0}^{\pi+2} f\end{equation}
+just to demonstrate \LaTeX's able handling of numbering.
+
+\subsection{Citations}
+Citations to articles \cite{bowman:reasoning,
+clark:pct, braams:babel, herlihy:methodology},
+conference proceedings \cite{clark:pct} or
+books \cite{salas:calculus, Lamport:LaTeX} listed
+in the Bibliography section of your
+article will occur throughout the text of your article.
+You should use BibTeX to automatically produce this bibliography;
+you simply need to insert one of several citation commands with
+a key of the item cited in the proper location in
+the \texttt{.tex} file \cite{Lamport:LaTeX}.
+The key is a short reference you invent to uniquely
+identify each work; in this sample document, the key is
+the first author's surname and a
+word from the title.  This identifying key is included
+with each item in the \texttt{.bib} file for your article.
+
+The details of the construction of the \texttt{.bib} file
+are beyond the scope of this sample document, but more
+information can be found in the \textit{Author's Guide},
+and exhaustive details in the \textit{\LaTeX\ User's
+Guide}\cite{Lamport:LaTeX}.
+
+This article shows only the plainest form
+of the citation command, using \texttt{{\char'134}cite}.
+This is what is stipulated in the SIGS style specifications.
+No other citation format is endorsed or supported.
+
+\subsection{Tables}
+Because tables cannot be split across pages, the best
+placement for them is typically the top of the page
+nearest their initial cite.  To
+ensure this proper ``floating'' placement of tables, use the
+environment \textbf{table} to enclose the table's contents and
+the table caption.  The contents of the table itself must go
+in the \textbf{tabular} environment, to
+be aligned properly in rows and columns, with the desired
+horizontal and vertical rules.  Again, detailed instructions
+on \textbf{tabular} material
+is found in the \textit{\LaTeX\ User's Guide}.
+
+Immediately following this sentence is the point at which
+Table 1 is included in the input file; compare the
+placement of the table here with the table in the printed
+dvi output of this document.
+
+\begin{table}
+\centering
+\caption{Frequency of Special Characters}
+\begin{tabular}{|c|c|l|} \hline
+Non-English or Math&Frequency&Comments\\ \hline
+\O & 1 in 1,000& For Swedish names\\ \hline
+$\pi$ & 1 in 5& Common in math\\ \hline
+\$ & 4 in 5 & Used in business\\ \hline
+$\Psi^2_1$ & 1 in 40,000& Unexplained usage\\
+\hline\end{tabular}
+\end{table}
+
+To set a wider table, which takes up the whole width of
+the page's live area, use the environment
+\textbf{table*} to enclose the table's contents and
+the table caption.  As with a single-column table, this wide
+table will ``float" to a location deemed more desirable.
+Immediately following this sentence is the point at which
+Table 2 is included in the input file; again, it is
+instructive to compare the placement of the
+table here with the table in the printed dvi
+output of this document.
+
+
+\begin{table*}
+\centering
+\caption{Some Typical Commands}
+\begin{tabular}{|c|c|l|} \hline
+Command&A Number&Comments\\ \hline
+\texttt{{\char'134}alignauthor} & 100& Author alignment\\ \hline
+\texttt{{\char'134}numberofauthors}& 200& Author enumeration\\ \hline
+\texttt{{\char'134}table}& 300 & For tables\\ \hline
+\texttt{{\char'134}table*}& 400& For wider tables\\ \hline\end{tabular}
+\end{table*}
+% end the environment with {table*}, NOTE not {table}!
+
+\subsection{Figures}
+Like tables, figures cannot be split across pages; the
+best placement for them
+is typically the top or the bottom of the page nearest
+their initial cite.  To ensure this proper ``floating'' placement
+of figures, use the environment
+\textbf{figure} to enclose the figure and its caption.
+
+This sample document contains examples of \textbf{.eps}
+and \textbf{.ps} files to be displayable with \LaTeX.  More
+details on each of these is found in the \textit{Author's Guide}.
+
+\begin{figure}
+\centering
+\epsfig{file=fly.eps}
+\caption{A sample black and white graphic (.eps format).}
+\end{figure}
+
+\begin{figure}
+\centering
+\epsfig{file=fly.eps, height=1in, width=1in}
+\caption{A sample black and white graphic (.eps format)
+that has been resized with the \texttt{epsfig} command.}
+\end{figure}
+
+
+As was the case with tables, you may want a figure
+that spans two columns.  To do this, and still to
+ensure proper ``floating'' placement of tables, use the environment
+\textbf{figure*} to enclose the figure and its caption.
+and don't forget to end the environment with
+{figure*}, not {figure}!
+
+\begin{figure*}
+\centering
+\epsfig{file=flies.eps}
+\caption{A sample black and white graphic (.eps format)
+that needs to span two columns of text.}
+\end{figure*}
+
+Note that either {\textbf{.ps}} or {\textbf{.eps}} formats are
+used; use
+the \texttt{{\char'134}epsfig} or \texttt{{\char'134}psfig}
+commands as appropriate for the different file types.
+
+\begin{figure}
+\centering
+\psfig{file=rosette.ps, height=1in, width=1in,}
+\caption{A sample black and white graphic (.ps format) that has
+been resized with the \texttt{psfig} command.}
+\vskip -6pt
+\end{figure}
+
+\subsection{Theorem-like Constructs}
+Other common constructs that may occur in your article are
+the forms for logical constructs like theorems, axioms,
+corollaries and proofs.  There are
+two forms, one produced by the
+command \texttt{{\char'134}newtheorem} and the
+other by the command \texttt{{\char'134}newdef}; perhaps
+the clearest and easiest way to distinguish them is
+to compare the two in the output of this sample document:
+
+This uses the \textbf{theorem} environment, created by
+the\linebreak\texttt{{\char'134}newtheorem} command:
+\newtheorem{theorem}{Theorem}
+\begin{theorem}
+Let $f$ be continuous on $[a,b]$.  If $G$ is
+an antiderivative for $f$ on $[a,b]$, then
+\begin{displaymath}\int^b_af(t)dt = G(b) - G(a).\end{displaymath}
+\end{theorem}
+
+The other uses the \textbf{definition} environment, created
+by the \texttt{{\char'134}newdef} command:
+\newdef{definition}{Definition}
+\begin{definition}
+If $z$ is irrational, then by $e^z$ we mean the
+unique number which has
+logarithm $z$: \begin{displaymath}{\log e^z = z}\end{displaymath}
+\end{definition}
+
+Two lists of constructs that use one of these
+forms is given in the
+\textit{Author's  Guidelines}.
+ 
+There is one other similar construct environment, which is
+already set up
+for you; i.e. you must \textit{not} use
+a \texttt{{\char'134}newdef} command to
+create it: the \textbf{proof} environment.  Here
+is a example of its use:
+\begin{proof}
+Suppose on the contrary there exists a real number $L$ such that
+\begin{displaymath}
+\lim_{x\rightarrow\infty} \frac{f(x)}{g(x)} = L.
+\end{displaymath}
+Then
+\begin{displaymath}
+l=\lim_{x\rightarrow c} f(x)
+= \lim_{x\rightarrow c}
+\left[ g{x} \cdot \frac{f(x)}{g(x)} \right ]
+= \lim_{x\rightarrow c} g(x) \cdot \lim_{x\rightarrow c}
+\frac{f(x)}{g(x)} = 0\cdot L = 0,
+\end{displaymath}
+which contradicts our assumption that $l\neq 0$.
+\end{proof}
+
+Complete rules about using these environments and using the
+two different creation commands are in the
+\textit{Author's Guide}; please consult it for more
+detailed instructions.  If you need to use another construct,
+not listed therein, which you want to have the same
+formatting as the Theorem
+or the Definition\cite{salas:calculus} shown above,
+use the \texttt{{\char'134}newtheorem} or the
+\texttt{{\char'134}newdef} command,
+respectively, to create it.
+
+\subsection*{A {\secit Caveat} for the \TeX\ Expert}
+Because you have just been given permission to
+use the \texttt{{\char'134}newdef} command to create a
+new form, you might think you can
+use \TeX's \texttt{{\char'134}def} to create a
+new command: \textit{Please refrain from doing this!}
+Remember that your \LaTeX\ source code is primarily intended
+to create camera-ready copy, but may be converted
+to other forms -- e.g. HTML. If you inadvertently omit
+some or all of the \texttt{{\char'134}def}s recompilation will
+be, to say the least, problematic.
+
+\section{Conclusions}
+This paragraph will end the body of this sample document.
+Remember that you might still have Acknowledgments or
+Appendices; brief samples of these
+follow.  There is still the Bibliography to deal with; and
+we will make a disclaimer about that here: with the exception
+of the reference to the \LaTeX\ book, the citations in
+this paper are to articles which have nothing to
+do with the present subject and are used as
+examples only.
+%\end{document}  % This is where a 'short' article might terminate
+
+%ACKNOWLEDGMENTS are optional
+\section{Acknowledgments}
+This section is optional; it is a location for you
+to acknowledge grants, funding, editing assistance and
+what have you.  In the present case, for example, the
+authors would like to thank Gerald Murray of ACM for
+his help in codifying this \textit{Author's Guide}
+and the \textbf{.cls} and \textbf{.tex} files that it describes.
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+\appendix
+%Appendix A
+\section{Headings in Appendices}
+The rules about hierarchical headings discussed above for
+the body of the article are different in the appendices.
+In the \textbf{appendix} environment, the command
+\textbf{section} is used to
+indicate the start of each Appendix, with alphabetic order
+designation (i.e. the first is A, the second B, etc.) and
+a title (if you include one).  So, if you need
+hierarchical structure
+\textit{within} an Appendix, start with \textbf{subsection} as the
+highest level. Here is an outline of the body of this
+document in Appendix-appropriate form:
+\subsection{Introduction}
+\subsection{The Body of the Paper}
+\subsubsection{Type Changes and  Special Characters}
+\subsubsection{Math Equations}
+\paragraph{Inline (In-text) Equations}
+\paragraph{Display Equations}
+\subsubsection{Citations}
+\subsubsection{Tables}
+\subsubsection{Figures}
+\subsubsection{Theorem-like Constructs}
+\subsubsection*{A Caveat for the \TeX\ Expert}
+\subsection{Conclusions}
+\subsection{Acknowledgments}
+\subsection{References}
+Generated by bibtex from your ~.bib file.  Run latex,
+then bibtex, then latex twice (to resolve references)
+to create the ~.bbl file.  Insert that ~.bbl file into
+the .tex source file and comment out
+the command \texttt{{\char'134}thebibliography}.
+% This next section command marks the start of
+% Appendix B, and does not continue the present hierarchy
+\section{More Help for the Hardy}
+The sig-alternate.cls file itself is chock-full of succinct
+and helpful comments.  If you consider yourself a moderately
+experienced to expert user of \LaTeX, you may find reading
+it useful but please remember not to change it.
+%\balancecolumns % GM June 2007
+% That's all folks!
+\end{document}
