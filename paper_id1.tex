@@ -219,7 +219,12 @@ Results from this demonstrative study show that in general the approach is <blan
 \keywords{ACM proceedings, \LaTeX, text tagging}
 
 \section{Introduction}
-
+%update
+Deploying these techniques requires communicating and motivating developers to use them.  Murphy-Hill and colleagues  \cite{wbsnipes:Hill2011Peer} show that developers can effectively learn about new tools from their peers by watching them work and through recommendations, yet this happens very rarely, in part because developers rarely work on the same computer at the same time.  This personal connection limits the knowledge transfer to the co-located circle of colleagues connected with the early adopters.  
+%update
+Finding a way to automate the communication of technique recommendations between developers enhances deployment of best practices in a globally distributed software development organization.   
+%PF the following sounds redundant
+To best match the peer recommendation scenario described above, the method should mimic the personal recommendation model while rewarding successful adopters.
 
 \section{Study Design}
 Creating a longitudinal study involves defining a long-term goal that is measurable in increments, determining the discrete steps that the study will use to communicate the goal to the participants, distribute interventions to participants, and track participants progress over time.  Many software engineering studies are conducted at discrete points in time via surveys of sampled participants.  Perhaps prior to an intervention, and multiple points following an intervention.  This study demonstrates a method to perform an intervention, continuously monitor the progress of participant response to that intervention, and provide continuous feedback to the participant and researchers about the progress.  Continuous meaning that no information gaps exist in the data collection, there are no periods of unmonitored activity by the participant.  Continuous also applies to the intervention being evaluated, where the participant and researchers receive constant feedback about the conformance to the intervention's purpose.  Studying an intervention in a continuous context determines how sticky the intervention is in the mind of the developer.  It can remove bias that might be introduced by periodic surveys or audits and enhance the habits formed in the participant receiving the intervention.
@@ -227,7 +232,7 @@ Creating a longitudinal study involves defining a long-term goal that is measura
 Designing the study with continuous measurement but no control group presents a traditional study design with some challenges.  We overcame this by dividing the study in to phases where the participants themselves form a control group.  The first phase baselines their activities determining the current state of their practices.  The second phase presents the intervention to the participants.  This phase the participants do not receive continuous feedback on their compliance with the intervention.  This phase simulates the traditional approach of communicating an intervention then returning with an audit to determine whether participants are complaint with it.   The last phases turns on continuous feedback to the participants on their compliance with the intervention.  As they receive the feedback, the participants can determine for themselves how much they are implementing the intervention.  In the last phase they possess complete knowledge of the intervention and their compliance with it making it plausible that they can continuously control their compliance.
 
 Developing the study with the available tooling means that we follow steps as follows.
-1. define the practice we wish to measure compliance with
+1. Define the practice we wish to measure compliance with
 2. Develop a mapping of the practice to actions that are captured by the blaze tool from the IDE
 3. Weight the actions according to their importance to the practice and assign points to the actions in the configuration file
 4. Develop the intervention method
@@ -237,6 +242,9 @@ Developing the study with the available tooling means that we follow steps as fo
 8. Define a post-study questionnaire if necessary to collect post study information
 9. Communicate with the participants about the study
 10. Execute the study and report results
+
+\subsection{Setup the practice}
+Selecting a practice to study involves defining specific characteristics of the practice and how capturing actions in Visual Studio relates to the practice.  In this study we selected the structured navigation practice shown by Robillard et. al. as correlated with effective program maintenance \cite{wbsnipes:Robillard2004How} .  
 
 \subsection{Type Changes and {\subsecit Special} Characters}
 We have already seen several typeface changes in this sample.  You
@@ -539,7 +547,8 @@ and the \textbf{.cls} and \textbf{.tex} files that it describes.
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
 \bibliographystyle{abbrv}
-\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+\balance
+\bibliography{paper_id1}  % sigproc.bib is the name of the Bibliography in this case
 % You must have a proper ".bib" file
 %  and remember to run:
 % latex bibtex latex latex
@@ -581,7 +590,7 @@ Generated by bibtex from your ~.bib file.  Run latex,
 then bibtex, then latex twice (to resolve references)
 to create the ~.bbl file.  Insert that ~.bbl file into
 the .tex source file and comment out
-the command \texttt{{\char'134}thebibliography}.
+the command% \texttt{{\char'134}thebibliography}.
 % This next section command marks the start of
 % Appendix B, and does not continue the present hierarchy
 \section{More Help for the Hardy}
