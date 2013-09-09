@@ -315,16 +315,36 @@ After a week's data collection marking the end of the first wave, Blaze started 
 
 In the third wave developers received instant feedback from Blaze on the points they accumulated during the development session.  The up/down arrow provided a simple indicator on whether they were increasing their use of structured navigation or were using it less than their personal historical average.  This final configuration continued until the end of the pilot.  
 
-\subsection{Participants}
+\subsection{Pilot Participants}
 
-We conducted this study with an intact team of developers working in an R\&D facility in India on a large industrial software system.  Developers were asked to volunteer for the pilot by their management, however, managers did not know who participated in the study.  Mechanisms in our data collection to identify individuals were under the control of each developer, they could chose to share or keep confidential the association of a generated unique id with researchers or each other.  
+
+We conducted this study with an intact team of 6 developers working in an R\&D facility in India on a large industrial software system. We approached a team which develops and maintains an industrial software product. Initially, we met the whole team along with the management staff to explain the research project and the Blaze tool we developed. We  explained the aim of the study, what data is collected, and how the data will be processed and managed. 
+
+It was important to gain the confidence of the participants that their data were kept confidential so their activities would be close as possible to real-world. if the participants felt like they are being tracked and the data is going to use for some study that would identify them to their peers or managers, then they may deviate from the natural development style.
+
+We  assured the team about the confidentiality of the data and the management also informed the team that the data collected by the research group will not be used for any other purpose other than the study.  Developers were asked to volunteer for the pilot by their management, however, managers did not know who participated in the study. Their name and data were kept confidential to ensure that no one apart from the research team knows that he/she is participating in the pilot. Mechanisms in our data collection to identify individuals were under the control of each developer, they could chose to share or keep confidential the association of a generated unique id with researchers or each other.   
 
 Management wished to have no knowledge of who was participating and took great care to remain detached from the pilot proceedings.  Data at this level of detail has not been collected in ABB development organizations except for a few minutes of video study that might be conducted.  Researchers were careful to create the system so that developers controlled their identification with the data and fortunately, management bought into the necessary anonymity of the participants.
+%Through this approach, we ensured that the developers are performing the task on a very natural environment with out bothering that they are being tracked.
 
 \subsection{Competitive Elements}
 By selecting an intact team, we hope to leverage aspects of motivation such as the Leaderboard to spur feelings of competition among teammates.    The leaderboard was presented so that developers could see their own score in relation to the top 5 people on the leaderboard.  However, the identifier of the other participants was generated as 3 capital letters assigned based on their position on the leaderboard.  Therefore the assigned letters could even change when an individual's ranking changed.  Not knowing who of your colleagues was ahead of you could be a factor in motivation, but also avoids one potential source of conflict in an intact team.
 
 Competitive dynamics may be more effective when teams from different areas can compete as a team against other teams..  This tried and true method both builds esprit de corps and enhances achievement towards the intended outcome.  This study design is potential future work. 
+
+\subsection{Pilot Survey}
+
+The goal for the pilot follow-up survey was to collect feedback on the tool and the effect it had on the developers navigation practices and knowledge.  The survey questions were segmented into portions that evaluate prior and post knowledge and practices for navigation, key steps in the pilot itself, the influence of game elements on their navigation practices, typical tasks and demographic information.
+
+The key questions about this pilot were did we have an effect on knowledge of the developers regarding structured navigation commands.  We asked them to rate their knowledge of structured navigation commands prior to the pilot on a 1-10 scale to understand their baseline.  We asked them to contrast their knowledge after the pilot to assess what they learned from the pilot.
+
+The other key question is did we have an effect on their navigation practices.  Here too we asked them to rate how much they used structured navigation prior to the pilot using a 4 choice rating of not at all, some, many times, and as much as possible.  Then we asked whether the used structured navigation commands about the same amount, more,  or a lot more during the pilot.  These two questions assessed their intent in terms of using structured navigation commands and we checked that with the data.
+
+A key set of questions focused on whether using Blaze increased their attention to navigation commands by asking how much specific game elements influenced their practices.  The scale started with not at all, a little, some, to a lot.  
+
+The other questions included whether they reviewed the training materials on structured navigation commands, installed the Sando code search tool, and what types of development tasks they would consider using structured navigation for in general.  A key demographic question is how well they know the code they work in rated from "I work in code that I wrote", "I maintain code that I am familiar with", to "I recently learned the code"
+
+Survey results are discussed in the results section \ref{Results}
 
 \section{Related Work}
 %update and expand
@@ -343,6 +363,7 @@ Murphy-Hill et. al. study a large usage history data set and apply several diffe
 
 Dubois and Tamburrelli discuss theoretical concepts behind applying gamification to software development. \cite{Dubois2013Understanding} Their approach is to consider how gamification could be applied throughout the software development life-cycle to motivate many practices in different phases.  They provide guidance on assessing gamification in the software development domain that includes analyzing the actors and game mechanics, defining integration with existing tools and processes, and designing the evaluation of results.  Dbois and Tamburrelli demonstrate this guidance using a study of students working on a class project.  Defining a control group and subject group of students, both groups receive the same feedback about their code comments, test coverage, code size, and static analysis rule violations.  The subject group can see each others' rankings while the control group only sees their personal rankings.  Results though inconclusive indicate that competition increases the desired results.  In our study we apply both individual feedback and competitive based feedback (anonymized) to participants and seek to observe a change in their behavior after an intervention.
 
+
 \section{Results}
 
 Although we translated navigation commands to points for developers, we defined the metric Navigation ratio based on Jones and Jones \cite[] as the number of structured navigation events in a day over the number of unstructured navigation events.  This metric provides a continuous variable allowing us to use statistical data of continuous data to check our hypotheses.  To create the evaluation for each wave, we took the navigation ratio for each developer in each wave.
@@ -360,6 +381,22 @@ To evaluate whether developers use more structured navigation when they receive 
 \end{mdframed}\end{figure}
 
 Is this a spectacular fail from a gamification effectiveness perspective?   How could this be when pre-study results indicated very positive attitudes towards the approach?  Our post pilot survey attempts to shed some light on the reasons.  One question in the post survey is how knowledgeable the developer was about the code they worked in with 3 possibilities,  they were authors of the code, they regularly maintained the code, they were unfamiliar with the code.  In this team, x\% of developers cited that they ...the code.  Another factor to consider is experience level which we also asked in the post-pilot survey.  More experienced developers may be more convinced of their effective habits and perhaps react almost with muscle memory to use structured or unstructured navigation to locate code of interest.  Even developers whose navigation ratio  was lower than average, used structured navigation occasionally as much as their more frequently using colleagues.  The variation for each individual can be seen in Figure \ref{} .
+
+\subsection{Pilot Survey Results}
+
+On the assessment of structured navigation knowledge, half of the participants replied that they had very good prior knowledge about structured navigation and they use structured navigation as much as possible.  Other half of the participants have some understanding on structured navigation use it some of the time. While analyzing the points they scored with blaze tool, it is observed that the participants who mentioned that they have good knowledge in structured navigation are on top of the points table. 
+%the following statement is not supported with data unless you have additional data?
+Incidentally, while cross verifying their performance on the coding, they are better productive compared to the participants on the bottom of points table.
+
+Assessing the game elements of Blaze that influenced them, four out of six said the leaderboard influenced them a lot and all rated the leaderboard as having some influence.  Three out of six  said their individual point score influenced them a lot and all said the score had some influence.  The element with mixed ratings was a graphical indicator on whether they were improving over past use of structured navigation commands.  The indicator received the a lot rating from one participant and a not at all rating from one participant with the rest having some influence.
+
+The participants requested that the system to provide more feedback on tips to them to increase their score. This feature of the tool is planned for the next release.    
+
+Comparing the survey demographic results with game scores reveals that years of experience did not have a strong influence over scores or structured navigation knowledge.  All developers in the study had 7 or more years experience and one person with 8 years experience used structured navigation enough to obtain second place matching a 10 year experienced colleague.    
+
+Those who rated their knowledge of structured navigation commands highly, did better in the points and generally had a higher average navigation ratio than those who rated their prior knowledge lower.  This could indicate that using structure navigation is somewhat of a habit that takes longer to change.  There was also feedback that people wanted more information presented to them by the tool on what commands to use, so they may not have closed the knowledge gap during the pilot.  
+
+Those who worked in code that they wrote tended to use less structured navigation having a lower navigation ratio and point score.  Those who had recently learned the code they were working in had more consistent use of structured navigation and one of them used Sando the most of the pilot participants.
 
 \section{Threats to Validity}
 There are several threats to validity for this result.  By making the purpose of our measurement and contest known although without details we may have triggered the participants to think about navigation commands they use before establishing a baseline.  We attempt to control for this by comparing the pilot participants' data to data from Blaze users who are knowledgeable Visual Studio developers but did not receive the interventions.  Another threat is the intact team represents people with different backgrounds and experience levels who may have established habits for navigating through source code.  We attempt to control for this by asking post survey questions of the participants about their familiarity with the code they work in and their experience levels.  The threat of non- generalizable of results remains particularly because the pilot was conducted within an intact team in a single industrial site in India. As the pre-study questionnaire shows, the developer's desirability for a gamification type of intervention vary by country.
