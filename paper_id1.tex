@@ -202,11 +202,15 @@ Emerson Murphy-Hill
 
 \maketitle
 \begin{abstract}
-As software development practices evolve, we face the continuous challenge of communicating new practices and tools to the community.  As developers, we both like to try new things and like to stick with the familiar.  In addition to training, discussing, and presenting software engineering practices and tools, we seek to communicate them through active two-way information embedded in the Integrated Development Environment (IDE).  While communicating, we also collect data on new and current practices and tools used by each developer by recording actions in the IDE.  With a rich data source, we evaluate what practices are used, define metrics that give individual feedback, and create an environment where developers can see how they are doing compared with their teammates.  
+As software development practices evolve, we face the continuous challenge of communicating new practices and tools to the community.  As developers, we both like to try new things and like to stick with the familiar.  In addition to training, discussing, and presenting software engineering practices and tools, we seek to communicate them through active two-way information embedded in the Integrated Development Environment (IDE).  
 
-This approach helps understand practice and tool use over the long term and judges the lasting change a communication effort makes in everyday habits.  Tool support provides a mechanism to embed into Visual Studio an extension that provides the capture of usage data while giving feedback to users on their practices both in general and specific to the ones being promoted.  Through a points score system that assigns points to specific commands and tools we encourage everyone to use the new practices.  Providing a light score ranking view should help us stay motivated as we compare our command usage to our peers.  To demonstrate how this works, we implement a longitudinal study that demonstrates the results from this approach as we engage with developers over a month-long period.  
+We collect data on current practices and tools used by the developer while giving them feedback on how they can improve.
 
-Results from this demonstrative study show that in general the approach is <blank> with a few developers <blank> of the study.  The effectiveness of this approach for communicating about practices is demonstrated through the continued use of the commands as we communicate them.  Evaluation of metrics for navigation ratio over time show that developer use the commands <blank> than they did during the benchmarking phase.  The result of the study shows that this method for communicating and promoting software engineering tools and practices <blank>.
+ With a rich data source, we evaluate developer practices, define metrics that give individual feedback, and create an environment for developers to see how they are doing compared with their teammates.  
+
+Blaze helps understand developer practice and tool use over the long term and judges the lasting change a communication effort makes in everyday habits.  Embeding Blaze n the developers work environment as a Visual Studio extension provides the capture of usage data while giving feedback to users on their practices.  Blaze encourages everyone to use the new practices by assigning points to specific commands and tools .  Providing a light score ranking view should help us stay motivated as we compare our command usage to our peers.  A month-long longitudinal study conducted with pilot users shows how develipers react to the presented information.    
+
+Results from this demonstrative study show the approach is <blank> with a few developers <blank> of the study.  The effectiveness of this approach for communicating about practices is demonstrated through the continued use of the commands as we communicate them.  Evaluation of metrics for navigation ratio over time show that developer use the commands <blank> than they did during the benchmarking phase.  The result of the study shows that this method for communicating and promoting software engineering tools and practices <blank>.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -220,7 +224,18 @@ Results from this demonstrative study show that in general the approach is <blan
 
 \section{Introduction}
 %update
-Deploying these techniques requires communicating and motivating developers to use them.  Murphy-Hill and colleagues  \cite{wbsnipes:Hill2011Peer} show that developers can effectively learn about new tools from their peers by watching them work and through recommendations, yet this happens very rarely, in part because developers rarely work on the same computer at the same time.  This personal connection limits the knowledge transfer to the co-located circle of colleagues connected with the early adopters.  
+
+As  a developer I'm focused on the problem I'm currently solving and driven by productivity and deadlines to the point that I don't have time to sharpen the saw identifying better practices.  
+
+Developers with years of experience develop habits and ways of doing things that are difficult to change even when they might recognize better methods.   For instance, the commands they use and ways they use to navigate the code base in the development environment make them less efficient than using newer practices. Robillard et. al. show that developers who think of code as a graph and use commands that allow them to follow code structure are more effective and efficient than developers who browse through code. \cite{wbsnipes:Robillard2004How}  
+
+Perhaps the persistence of their habit is why developers are hard to turn from their old practices.  They may need some coaching to continue the new practice following a given lesson.  To continuously coach the developer, we conceived of a tool in our prior work to provide constant feedback to retain the attention and interest of the developer.  \cite{Snipes2013Towards} This tool creates a competitive game that rewards the developer continuously for adopting the improved practice.  The more they change their habits, the higher they score in the game. 
+
+Taking a step back, gamification is a popular movement that people apply to customer oriented web sites and social games.  Why would software developers writing serious software be interested in this?  Our first step was to challenge this question through a survey that queried both whether developers would be interested in gamifying their workspace and what aspects of that space would be most interesting to them.
+
+With these questions answered, we identified a set of practices and defined a game meeting expectations from the developers feedback.  The game, implemented in a Visual Studio add-in called Blaze, integrates into the Visual Studio workspace and establishes a light anonymous competition between developers to improve their navigation practices. 
+
+During the pilot of Blaze we observed the variation in developer navigation practices and identified some potential reasons for this variation.  We evaluated developer's acceptance of game mechanics in the tool and their desires for additional functionality.  While further data is required to assess the impact of the game, the initial developer acceptance encourages an expanded study.
 
 
 
@@ -229,9 +244,9 @@ Deploying these techniques requires communicating and motivating developers to u
 \subsection{Assessment Background}
 When discussing gamification, folks raise a concern about replacing an activity that is intrinsically motivated with extrinsic motivation provided by points and achievements.  To discover what is behind this concern, several studies are useful to understand what should be done. 
 
-Early studies attempt to evaluate achievement motivation in students and relate that to their performance in school.  The study by Hermans describes results from applying questionnaire to evaluate achievement motivation in students \cite{wbsnipes:Hermans1970Questionnaire}.  Each question is ranked for its correlation to achievement motivation. Results indicate that some key questions about the diligence with which students approach their work are correlated with achievement motivation.  The questions in this questionnaire and their ranking may be useful for evaluating achievement motivation in further studies.  Take care when choosing appropriate questions that for the context of the survey.
+Early studies attempt to evaluate achievement motivation in students and relate that to their performance in school.  The study by Hermans describes results from applying questionnaire to evaluate achievement motivation in students \cite{wbsnipes:Hermans1970Questionnaire}.  Each question is ranked for its correlation to achievement motivation. Some key questions about the diligence with which students approach their work are correlated with achievement motivation.  
 
-Maehr proposes an affirmative theory that individuals achieve as a member of a social group choosing the behavior that will meet the expectations and values of the group that is significant to them. \cite{wbsnipes:MaehrCulture}  So the presence of a social group where the person is motivated to belong and excel within is important for creating achievement motivation.  Maehr states that since achievement behaviors can be triggered by circumstance, that they are present in most people regardless of background. 
+Maehr proposes an affirmative theory whereby  individuals achieve as a member of a social group choosing the behavior that will meet the expectations and values of the group that is significant to them. \cite{wbsnipes:MaehrCulture}  The presence of a social group where the person is motivated to belong and excel within is important for creating achievement motivation.  Maehr states that since achievement behaviors can be triggered by circumstance, that they are present in most people regardless of background. 
 
 Beecham and colleagues provide a thorough analysis of existing literature on studies of motivation in Software Engineering\cite{wbsnipes:Beecham2008Motivation}. It has some valuable lists of factors that motivate software engineers with the most common being "the work" motivates us. The list of de-motivators is also useful with common job satisfaction items like stress and inequity in recognition, plus poor quality software (low accomplishment) and lack of influence in decision making. The paper also lists characteristics of people in the professions including need for independence (autonomy), desire to learn new skills/tackle challenges. 
 
@@ -239,7 +254,7 @@ Understanding the concerns with maintaining intrinsic motivation while adding el
 
 \subsection{Assessment Results}
 
-Using a question from the Saachi and Saachi survey\cite{wbsnipes:SaatchiGameification} as directly as possible, we asked developers at ABB "How interested they would be in working for a company that incorporated some aspects of games into software engineering tools as a way to increase productivity in the workplace"?  We segmented results by country in Figure \ref{fig:gamification} and found that gamification of software engineering is more interesting to developers in India, Poland, and Finland than in other major countries.  The responses indicating that developers were at least somewhat interested is 75-88\% In India, Poland, and Finland.  For the US, Sweden, and Switzerland the responses indicate 60-65\% are at least somewhat interested.  The overall ABB response is comparable to the Saachi and Saaschi survey\cite{wbsnipes:SaatchiGameification} upon which this question was based that found 75\% of 18-45 year olds were at least somewhat interested.  
+Using a question from the Saachi and Saachi survey\cite{wbsnipes:SaatchiGameification} as directly as possible, we asked developers at ABB "How interested they would be in working for a company that incorporated some aspects of games into software engineering tools as a way to increase productivity in the workplace"?  We segmented results by country in Figure \ref{fig:gamification} and found that gamification of software engineering is more interesting to developers in India, Poland, and Finland than in other major countries.  The responses indicating that developers were at least somewhat interested is 75-88\% In India, Poland, and Finland.  For the US, Sweden, and Switzerland the responses indicate 60-65\% are at least somewhat interested.  The overall response from our survey is comparable to the Saachi and Saaschi survey\cite{wbsnipes:SaatchiGameification} upon which this question was based that found 75\% of 18-45 year olds were at least somewhat interested.  
 
 \begin{figure}\begin{mdframed}[linecolor=white]
 	\includegraphics[width=3in]{gamificationquestion.pdf}
@@ -294,11 +309,18 @@ Developing the study with the available tooling means that we follow steps as fo
 \subsection{Select a Practice}
 In their paper on game design patterns, Hamari et. al. issue a warning that assigning achievements to required tasks reduces intrinsic motivation because player autonomy is reduced by the achievements \cite{wbsnipes:Hamari2011Framework} .  This warning indicates that we should avoid giving points for things that are already an expected deliverable such as finding or fixing bugs, completing development tasks, or meeting required process criteria.  Practices to consider are those practices with room to go beyond a checklist or minimum criteria where developers have the opportunity to excel.
 
-Selecting a practice to study involves identifying a practice, defining specific characteristics of the practice to measure, and identifying the actions in Visual Studio that relate to the practice.  We currently limit ourselves to practices that exist entirely in the IDE thus can be monitored using Blaze.  We identified potential practices of test-driven development, debugging practices, navigation practices,  eliminating static analysis bugs, and check-in frequency.  Practices of check-in frequency, static analysis bug elimination are highlighted in this paper's related work section with prior gamification studies in classroom environments.  Johnson and Kou achieved automated monitoring of test-driven development practices with Zorro thus may provide a candidate for future gamification application.   Debugging practices have developer community opinions on optimal methods, however, detailed debug practices with modern IDEs have not received research community attention, thus are also reserved for future work.  Based on studies of structured navigation by Robillard et. al. that identify structured navigation as a practice leading to effective program maintenance  \cite{wbsnipes:Robillard2004How}, we identified structured navigation as a key practice.   Structured navigation fits the requirement of a practice that is contained in the IDE, is something that has proven benefits, and lends itself to measurement and scoring, is not an assigned task, and leaves room for developers to excel.  
+Selecting a practice to study involves identifying a practice, defining specific characteristics of the practice to measure, and identifying the actions in Visual Studio that relate to the practice.  We currently limit ourselves to practices that exist entirely in the IDE thus can be monitored using Blaze.  We identified potential practices of test-driven development, debugging practices, navigation practices,  eliminating static analysis bugs, and check-in frequency.  
+
+Practices of check-in frequency, static analysis bug elimination are highlighted in this paper's related work section with prior gamification studies in classroom environments.  Johnson and Kou achieved automated monitoring of test-driven development practices with Zorro thus may provide a candidate for future gamification application.   Debugging practices have developer community opinions on optimal methods, however, detailed debug practices with modern IDEs have not received research community attention, thus are also reserved for future work.  
+
+Based on studies of structured navigation by Robillard et. al. that identify structured navigation as a practice leading to effective program maintenance  \cite{wbsnipes:Robillard2004How}, we identified structured navigation as a key practice.   Structured navigation fits the requirement of a practice that is contained in the IDE, is something that has proven benefits, and lends itself to measurement and scoring, is not an assigned task, and leaves room for developers to excel.  
 
 \subsection{Design the Game}
 
-To setup the game for a practice, the Blaze tool provides an XML configuration file where the researcher can configure Blaze to categorize and assign points to the commands that are part of a software engineering practice.  Blaze allows the researcher to define multiple command category levels.  Thus we can categorize commands that are navigation then further classify them into structured and unstructured navigation.  We categorize commands as structured navigation when they allow the developer to locate a code element following the program structure from another element.  For example, Navigate To \textit{Ctrl+,}, Go To Definition \textit{F12}, and Find All References \textit{Ctrl+K,R} are commands that follow structure of the code, which we classify as structured navigation.
+To setup the game for a practice, the Blaze tool provides an XML configuration file where the researcher can configure Blaze to categorize and assign points to the commands that are part of a software engineering practice.  Blaze allows the researcher to define multiple command category levels.  Thus we can categorize commands that are navigation then further classify them into structured and unstructured navigation.  
+
+We categorize commands as structured navigation when they allow the developer to locate a code element following the program structure from another element.  For example, Navigate To \textit{Ctrl+,}, Go To Definition \textit{F12}, and Find All References \textit{Ctrl+K,R} are commands that follow structure of the code, which we classify as structured navigation.
+
 Commands that we considered as unstructured navigation include scrolling through a file using keys or the scroll-bar, opening files from the Solution Explorer, Find commands (e.g. Find in Files), Go-to line number, and children of these commands (e.g. Find Next).
 
 Gamification practices consider the feedback of achievements and points as critical to a successful outcome.  The design of achievement awards should gradually encourage the participant to reach higher and higher levels of success in the activity.  Achievements must feel earned to the participant so that internally they recognize the effort to get the award was significant and feel satisfied  \cite{wbsnipes:Hamari2011Framework}.  Hamari and Eranti describe a general relationship between achievements in games and regular game play      In games achievements are typically a parallel scoring system to the main game play.  They make the game more engaging providing multiple ways to increase your score and multiple challenges in one interface.
@@ -366,13 +388,23 @@ Dubois and Tamburrelli discuss theoretical concepts behind applying gamification
 
 \section{Results}
 
-Although we translated navigation commands to points for developers, we defined the metric Navigation ratio based on Jones and Jones \cite[] as the number of structured navigation events in a day over the number of unstructured navigation events.  This metric provides a continuous variable allowing us to use statistical data of continuous data to check our hypotheses.  To create the evaluation for each wave, we took the navigation ratio for each developer in each wave.
+\subsection{Pilot Data Observations}
 
-The following hypotheses interest us in the current study.  
-1. Developers using blaze use more structured navigation when they receive instant feedback about their practices
-2. Developers find the competitive aspect of blaze encourages them to pay more attention to navigation practices
+\subsubsection{Observations about navigation ratio improvement}
 
-To evaluate whether developers use more structured navigation when they receive instant feedback, we monitor the change in navigation ratio over the pilot study period.   Expecting that as developers learn about navigation commands and tools that count towards the score in the second week they will begin using the practices more.  Also expecting that noticing the leaderboard competition will encourage some developers to use the navigation practices more.  What we observed is shown in Figure \ref{fig:navigationaverage} that the structured navigation practice did not increase significantly from the beginning to the end of the study.  Overall, we did not see a significant effect towards increasing navigation ratio for the interventions in wave 2 or wave 3.   
+To evaluate whether developers improved their practices for structured navigation we established a metric Navigation ratio as the number as the number of structured navigation events in a day over the number of unstructured navigation events.  
+
+Structured navigation events included:
+
+Unstructured navigation events included:
+
+This metric provides a continuous variable allowing us to use statistical data of continuous data to check our hypotheses.  To create the evaluation for each wave, we took the navigation ratio for each developer in each wave.
+
+%The following hypotheses interest us in the current study.  
+%1. Developers using blaze use more structured navigation when they receive instant feedback about their practices
+%2. Developers find the competitive aspect of blaze encourages them to pay more attention to navigation practices
+
+%To evaluate whether developers use more structured navigation when they receive instant feedback, we monitor the change in navigation ratio over the pilot study period.   Expecting that as developers learn about navigation commands and tools that count towards the score in the second week they will begin using the practices more.  Also expecting that noticing the leaderboard competition will encourage some developers to use the navigation practices more.  What we observed is shown in Figure \ref{fig:navigationaverage} that the structured navigation practice did not increase significantly from the beginning to the end of the study.  Overall, we did not see a significant effect towards increasing navigation ratio for the interventions in wave 2 or wave 3.   
 
 \begin{figure}\begin{mdframed}[linecolor=white]
 	\includegraphics[width=3in]{navigationaverage.pdf}
@@ -380,47 +412,42 @@ To evaluate whether developers use more structured navigation when they receive 
 	\label{fig:navigationaverage}
 \end{mdframed}\end{figure}
 
-Is this a spectacular fail from a gamification effectiveness perspective?   How could this be when pre-study results indicated very positive attitudes towards the approach?  Our post pilot survey attempts to shed some light on the reasons.  One question in the post survey is how knowledgeable the developer was about the code they worked in with 3 possibilities,  they were authors of the code, they regularly maintained the code, they were unfamiliar with the code.  In this team, x\% of developers cited that they ...the code.  Another factor to consider is experience level which we also asked in the post-pilot survey.  More experienced developers may be more convinced of their effective habits and perhaps react almost with muscle memory to use structured or unstructured navigation to locate code of interest.  Even developers whose navigation ratio  was lower than average, used structured navigation occasionally as much as their more frequently using colleagues.  The variation for each individual can be seen in Figure \ref{} .
+\subsubsection{Observations about efficiency of structured navigation}
+
+Structured navigation sequences are less frequent between edits than unstructured navigation.  To study navigation practices in relationship to edits, we grouped the data into sequences delimited by edits meaning each sequence ends with one or more edits to the source code.   We evaluated the number of navigation commands between edits including clicks on locations in the file, navigating between files, and scrolling the file in the window.  
+
+We found that in x\% of the edit sequences structured navigation was sued.  We compared the time between edits where the sequences involved structured navigation to those that involved unstructured navigation.  The data supports the developer's perception that unstructured navigation is faster than structured navigation particularly when search is used.  We did find that when navigating between class files, developers who use structured navigation reached their destination X\% faster/slower than when using unstructured navigation.  
+
+Search was instrumental for developers who used the search tool where occurrences including search were completed x\% faster or slower than navigating by unstructured commands.
+
+%  Our post pilot survey attempts to shed some light on the reasons behind the inconsistent improvement in navigation ratio.    Even developers whose navigation ratio  was lower than average, used structured navigation occasionally as much as their more frequently using colleagues.  The variation for each individual can be seen in Figure \ref{} .
 
 \subsection{Pilot Survey Results}
 
-On the assessment of structured navigation knowledge, half of the participants replied that they had very good prior knowledge about structured navigation and they use structured navigation as much as possible.  Other half of the participants have some understanding on structured navigation use it some of the time. While analyzing the points they scored with blaze tool, it is observed that the participants who mentioned that they have good knowledge in structured navigation are on top of the points table. 
+On the assessment of structured navigation knowledge, half of the participants replied that they had very good prior knowledge about structured navigation and they use structured navigation as much as possible.  Other half of the participants have some understanding on structured navigation use it some of the time. While analyzing the points they scored with Blaze tool, we observed that the participants who mentioned that they have good knowledge in structured navigation are on top of the points table. 
 %the following statement is not supported with data unless you have additional data?
 Incidentally, while cross verifying their performance on the coding, they are better productive compared to the participants on the bottom of points table.
 
-Assessing the game elements of Blaze that influenced them, four out of six said the leaderboard influenced them a lot and all rated the leaderboard as having some influence.  Three out of six  said their individual point score influenced them a lot and all said the score had some influence.  The element with mixed ratings was a graphical indicator on whether they were improving over past use of structured navigation commands.  The indicator received the a lot rating from one participant and a not at all rating from one participant with the rest having some influence.
+Assessing the game elements of Blaze that influenced them, four out of six said the leaderboard influenced them "a lot" and all rated the leaderboard as having some influence.  Three out of six  said their individual point score influenced them "a lot" and all said the score had some influence.  The element with mixed ratings was a graphical indicator on whether they were improving over past use of structured navigation commands.  The indicator received the influencing "a lot" rating from one participant and a "not at all" influence rating from one participant with the rest having some influence.  The results indicate the more obvious and more clearly comparative information in the leaderboard was the strongest influence for developers.
 
-The participants requested that the system to provide more feedback on tips to them to increase their score. This feature of the tool is planned for the next release.    
+The participants requested that the system to provide more feedback on tips to help them increase their score. They indicated that more obvious feedback such as hints that pop-up when they launch the tool would help them more than passively provided information.  Their desire for personal metrics and historical views of the data encourages us that this detailed level of measurement and analysis is perceived as helpful.  Features to meet these requests are part of future work.    
 
-Comparing the survey demographic results with game scores reveals that years of experience did not have a strong influence over scores or structured navigation knowledge.  All developers in the study had 7 or more years experience and one person with 8 years experience used structured navigation enough to obtain second place matching a 10 year experienced colleague.    
+Comparing the survey demographic results with game scores reveals that years of experience did not have a strong influence over scores.  All developers in the study had 7 or more years experience and one person with 8 years experience used structured navigation enough to obtain second place nearly matching a 10 year experienced colleague.    
 
 Those who rated their knowledge of structured navigation commands highly, did better in the points than those who rated their prior knowledge lower.  This could indicate that using structured navigation is somewhat of a habit that takes longer to change.  There was also feedback that people wanted more information presented to them by the tool on what commands to use, so they may not have closed the knowledge gap during the pilot.  
 
-Those who worked in code that they wrote tended to use less structured navigation having a lower navigation ratio.  Those who had recently learned the code they were working in had more consistent use of structured navigation and one of them used Sando the most of the pilot participants.
+Those who worked in code that they wrote tended to use less structured navigation having a lower navigation ratio.  Those who had recently learned the code they were working in had more consistent use of structured navigation and one of them used Sando the most of the pilot participants.  Familiarity with the code thus may influence the use of structured navigation since when you maintain a mental map of the code, it may be more intuitive for you to click your way to it rather than use a search tool.  This may be an opportunity for future study to determine whether some developers maintain a somewhat abstract map of the code that makes it easier for them to click to it rather than recall keywords for a search.  %Could this be similar to how people navigate to software commands  in a menu structure more easily than using command line interfaces.
 
 \section{Threats to Validity}
 There are several threats to validity for this result.  By making the purpose of our measurement and contest known although without details we may have triggered the participants to think about navigation commands they use before establishing a baseline.  We attempt to control for this by comparing the pilot participants' data to data from Blaze users who are knowledgeable Visual Studio developers but did not receive the interventions.  Another threat is the intact team represents people with different backgrounds and experience levels who may have established habits for navigating through source code.  We attempt to control for this by asking post survey questions of the participants about their familiarity with the code they work in and their experience levels.  The threat of non- generalizable of results remains particularly because the pilot was conducted within an intact team in a single industrial site in India. As the pre-study questionnaire shows, the developer's desirability for a gamification type of intervention vary by country.
 
 \section{Conclusions}
-This paragraph will end the body of this sample document.
-Remember that you might still have Acknowledgments or
-Appendices; brief samples of these
-follow.  There is still the Bibliography to deal with; and
-we will make a disclaimer about that here: with the exception
-of the reference to the \LaTeX\ book, the citations in
-this paper are to articles which have nothing to
-do with the present subject and are used as
-examples only.
+Developers accept gamification ideas into their environment even when coupled with detailed development activity monitoring.   We identified specific concerns particularly around maintaining anonymity of the developer as their data are shared with other developers.  The participants' feedback indicates a desire for more instructional hints on how to succeed in the game similar to how real games provide hints when the user might be stuck.  Implementing a more comprehensive set of practices in the game would expand the usefulness of Blaze as a training tool.  Other ideas might include making the game more subtle so that it is not as obvious a competition, but builds the elements of self-improvement that move the experience from an extrinsically motivated one to an intrinsically motivated one.  
 %\end{document}  % This is where a 'short' article might terminate
 
 %ACKNOWLEDGMENTS are optional
 \section{Acknowledgments}
-This section is optional; it is a location for you
-to acknowledge grants, funding, editing assistance and
-what have you.  In the present case, for example, the
-authors would like to thank Gerald Murray of ACM for
-his help in codifying this \textit{Author's Guide}
-and the \textbf{.cls} and \textbf{.tex} files that it describes.
+The authors wish to thank ABB and the pilot participants for their support of this research.
 
 %
 % The following two commands are all you need in the
