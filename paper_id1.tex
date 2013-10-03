@@ -136,13 +136,13 @@
 \begin{document}
 %
 % --- Author Metadata here ---
-\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+\conferenceinfo{International Conference on Software Engineering}{2014 Hyderbad, India}
 %\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{Applying gamification to developer practices}
-\subtitle{Why developer habits die hard}
+\title{Experiences Gamifying Code Navigation}
+\subtitle{Are development practices a habit?}
 % 
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -202,15 +202,12 @@ Emerson Murphy-Hill
 
 \maketitle
 \begin{abstract}
-As software development practices evolve, we face the continuous challenge of communicating new practices and tools to the community.  As developers, we both like to try new things and like to stick with the familiar.  In addition to training, discussing, and presenting software engineering practices and tools, we seek to communicate them through active two-way information embedded in the Integrated Development Environment (IDE).  
+As software development practices evolve, we face the continuous challenge of communicating new practices and tools to the community.  As developers, we both like to try new things and like to stick with the familiar.  In addition to training, discussing, and presenting software engineering practices and tools, we propose a method to both motivate and monitor their adoption through a tool embedded in the Integrated Development Environment (IDE).  
 
-We collect data on current practices and tools used by the developer while giving them feedback on how they can improve.
-
+Blaze monitors developer practice and tool use over the long term and reports the lasting change a communication effort makes in everyday habits.  Embeding Blaze in the developer`s work environment as a Visual Studio extension provides the capture of developer work patterns while giving feedback to users on their practices.   Blaze encourages everyone to use the new practices by assigning points to specific commands and tools.  
  With a rich data source, we evaluate developer practices, define metrics that give individual feedback, and create an environment for developers to see how they are doing compared with their teammates.  
 
-Blaze helps understand developer practice and tool use over the long term and judges the lasting change a communication effort makes in everyday habits.  Embeding Blaze n the developers work environment as a Visual Studio extension provides the capture of usage data while giving feedback to users on their practices.  Blaze encourages everyone to use the new practices by assigning points to specific commands and tools .  Providing a light score ranking view should help us stay motivated as we compare our command usage to our peers.  A month-long longitudinal study conducted with pilot users shows how develipers react to the presented information.    
-
-Results from this demonstrative study show the approach is <blank> with a few developers <blank> of the study.  The effectiveness of this approach for communicating about practices is demonstrated through the continued use of the commands as we communicate them.  Evaluation of metrics for navigation ratio over time show that developer use the commands <blank> than they did during the benchmarking phase.  The result of the study shows that this method for communicating and promoting software engineering tools and practices <blank>.
+Data collected from the pilot group show a dichotomy of navigation and code understanding practices used by developers even the same developer in different situations.  We observed that the duration of an edit session is more correlated with categories of activity that benefit from improved practices and tools. The Blaze tool was well received by most participants, however, the intended improvements in navigation practices promoted by the pilot did not occur.  We conclude that more proactive interventions are necessary to move developers to change their code navigation habits.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -229,14 +226,15 @@ Results from this demonstrative study show the approach is <blank> with a few de
 
 Developers with years of experience develop habits and ways of doing things that are difficult to change even when they might recognize better methods.   For instance, the commands they use and ways they use to navigate the code base in the development environment make them less efficient than using newer practices. Robillard et. al. show that developers who think of code as a graph and use commands that allow them to follow code structure are more effective and efficient than developers who browse through code. \cite{wbsnipes:Robillard2004How}  
 
-Perhaps the persistence of their habit is why developers are hard to turn from their old practices.  They may need some coaching to continue the new practice following a given lesson.  To continuously coach the developer, we conceived of a tool in our prior work to provide constant feedback to retain the attention and interest of the developer.  \cite{Snipes2013Towards} This tool creates a competitive game that rewards the developer continuously for adopting the improved practice.  The more they change their habits, the higher they score in the game. 
+Perhaps the persistence of their habit is why developers are hard to turn from their old practices.  Developers may need some coaching to continue a new practice following an introduction.  To continuously coach the developer, we conceived of a tool in our prior work to provide constant feedback and motivate them to adopt a new practice.  \cite{Snipes2013Towards} This tool creates a competitive game that gives continous feedback to the developer continuously on adopting the improved practice.  The more they change their habits, the higher they score in the game. 
 
 Taking a step back, gamification is a popular movement that people apply to customer oriented web sites and social games.  Why would software developers writing serious software be interested in this?  Our first step was to challenge this question through a survey that queried both whether developers would be interested in gamifying their workspace and what aspects of that space would be most interesting to them.
 
 With these questions answered, we identified a set of practices and defined a game meeting expectations from the developers feedback.  The game, implemented in a Visual Studio add-in called Blaze, integrates into the Visual Studio workspace and establishes a light anonymous competition between developers to improve their navigation practices. 
 
-During the pilot of Blaze we observed the variation in developer navigation practices and identified some potential reasons for this variation.  We evaluated developer's acceptance of game mechanics in the tool and their desires for additional functionality.  While further data is required to assess the impact of the game, the initial developer acceptance encourages an expanded study.
+During the pilot of Blaze we observed the variation in developer navigation practices and identified some potential reasons for this variation.  We evaluated developer's acceptance of game elements in the tool and their desires for additional functionality.  While further data is required to assess the impact of the tool, the initial developer acceptance encourages an expanded pilot.
 
+The rest of the paper is organized as follows:  Section 2 reviews the preliminary survey-based assement, Section 3 Discusses the design considerations for developing the Blaze tool/game, Section 4 Discusses the design of the study and participant selection, Section 5 is Related work, Section 6 results from the pilot, Section 7 Threats to Validity, and Section 8 has our Conclusions.
 
 
 \section{Assess the Viability of Gamification for Software Engineering}
@@ -291,22 +289,22 @@ Developers were asked to rank awards for different actions by which they would f
 
 
 
-\section{Study and Game Design}
+\section{Game Design}
 
-Utilizing the unobtrusive continuous monitoring capabilities of Blaze, we designed the pilot as a longtiudinal study in three waves.  Longtiudinal studies allow us to design an experiment and determine the effects over two or more sample periods using standard MANOVA (Multiple ANalysis of VAriance) models. \cite{longitudinalbook}  We employed the three wave model defining the first wave as a baseline capturing the current practices of the pilot group.  The second wave employed the intervention that included an informative web site on structured navigation commands in Visual Studio, information about the Sando search tool, and information about how points would be awarded during the pilot.  The third wave provided the participants with continuous feedback in the from of points accumulated and an indicator arrow \ref{fig:blazegui} that points up when their navigation ratio is higher than their historical average.  
+%\begin{enumerate}
+%\item Define the practice we wish to measure compliance with
+%\item Develop a mapping of the practice to actions that are captured by the blaze tool from the IDE
+%\item Weight the actions according to their importance to the practice and assign points to the actions in the configuration file
+%\item Develop the intervention method
+%\item Determine the phases and length of the phase in the study according to baseline, intervention, and continuous feedback
+%\item Select participants to deploy
+%\item Define a pre-study questionnaire if one is necessary to collect associated information
+%\item Define a post-study questionnaire if necessary to collect post study information
+%\item Communicate with the participants about the study
+%\item Execute the study and report results
+%\end{enumerate}
 
-\begin{enumerate}
-\item Define the practice we wish to measure compliance with
-\item Develop a mapping of the practice to actions that are captured by the blaze tool from the IDE
-\item Weight the actions according to their importance to the practice and assign points to the actions in the configuration file
-\item Develop the intervention method
-\item Determine the phases and length of the phase in the study according to baseline, intervention, and continuous feedback
-\item Select participants to deploy
-\item Define a pre-study questionnaire if one is necessary to collect associated information
-\item Define a post-study questionnaire if necessary to collect post study information
-\item Communicate with the participants about the study
-\item Execute the study and report results
-\end{enumerate}
+The pilot evaluates the aspects of game implementation as well as the study of the results of their results. Here we discuss how the aspects of selecting a practice suitable for gamification, designing the game, and competitive element considerations.
 
 \subsection{Select a Practice}
 In their paper on game design patterns, Hamari et. al. issue a warning that assigning achievements to required tasks reduces intrinsic motivation because player autonomy is reduced by the achievements \cite{wbsnipes:Hamari2011Framework} .  This warning indicates that we should avoid giving points for things that are already an expected deliverable such as finding or fixing bugs, completing development tasks, or meeting required process criteria.  Practices to consider are those practices with room to go beyond a checklist or minimum criteria where developers have the opportunity to excel.
@@ -329,15 +327,27 @@ Gamification practices consider the feedback of achievements and points as criti
 
 Using these guidelines we assigned points to structured navigation commands which received 1-10 points each while unstructured navigation commands received 0 points.  Assigning negative points is discouraged as this may demotivate folks who do not have detailed knowledge of how the points are assigned.\cite{}   In creating levels, following the guidance from Hamari \cite{wbsnipes:Hamari2011Framework}, we built levels following an exponential curve.  Users initially level up after a working day or two extending to achieving the next level after a week or even a month following an exponential curve.  The levels make the game motivating for beginners and challenging for more experienced developers.  We designed the points and levels such that above average developers can complete all levels during the study period.
 
+
+\subsection{Competitive Elements}
+By selecting an intact team, we hope to leverage aspects of motivation such as the Leaderboard to spur feelings of competition among teammates.    The leaderboard was presented so that developers could see their own score in relation to the top 5 people on the leaderboard.  However, the identifier of the other participants was generated as 3 capital letters assigned based on their position on the leaderboard.  Therefore the assigned letters could even change when an individual's ranking changed.  Not knowing who of your colleagues was ahead of you could be a factor in motivation, but also avoids one potential source of conflict in an intact team.
+
+Competitive dynamics may be more effective when teams from different areas can compete as a team against other teams..  This tried and true method both builds esprit de corps and enhances achievement towards the intended outcome.  This study design is potential future work. 
+
+\section {Study Design}
+
+Utilizing the unobtrusive continuous monitoring capabilities of Blaze, we designed the pilot to reveal feedback to the developer in 3 stages of 1 week duration each.
+% Longtiudinal studies allow us to design an experiment and determine the effects over two or more sample periods using standard MANOVA (Multiple ANalysis of VAriance) models. \cite{longitudinalbook}  
+We employed the three stage model defining the first stage as a baseline capturing the current practices of the pilot group.  The second stage employed the intervention that included an informative web site on structured navigation commands in Visual Studio, information about the Sando search tool, and information about how points would be awarded during the pilot.  The third stage provided the participants with continuous feedback in the from of points accumulated and an indicator arrow \ref{fig:blazegui} that points up when their navigation ratio is higher than their historical average.  
+
 \subsection{Intervention Staging}
 
-After selecting the practice to focus on, we needed to select an intervention method.  The term intervention, indicates that we are applying a technique to influence a change in the measured behavior of developers.  Intervention involves communication about the practice in a way that motivates adoption \cite{}.  Interventions can include presentations, one-on-one discussions, distance education mechanisms such as webinars, and word of mouth recommendations.  Part of the research objective is to determine whether we can achieve adoption of a practice with alternative interventions that are more deliberate than word of mouth and perhaps more scalable than webinars or presentations.  
+Part of the research objective was to determine whether we can achieve adoption of a practice with alternative interventions that are more deliberate than word of mouth and perhaps more scalable than webinars or presentations.  As previously discussed we sought to provide Blaze as a means to influence developers to use structured navigation practices.  We constructed the interventions during the pilot to roll out in stages each week that they use the tool.  This allowed us to establish a baseline and determine the changes as the pilot continued.
 
-In the initial wave, participants were informed of the purpose of the study what to expect from the Blaze tool.  The participants installed the tool in their Visual Studio environment.  The tool did not present any window for them to see and simply collected data in the background.   
+In the initial stage, participants were informed of the purpose of the study what to expect from the Blaze tool.  The participants installed the tool in their Visual Studio environment.  The tool did not present any window for them to see and simply collected data in the background.   
 
-After a week's data collection marking the end of the first wave, Blaze started to automatically pop-up a window containing a button for a web page with information.  The page included a link to download another tool for code search called Sando \ref{sando} and information about using that tool in a video.  The sub-page on navigation contained a page of tutorial on the built-in structured navigation commands in Visual Studio.  The About Blaze page contained details of the point scoring system and background on Blaze's purpose.  The usefulness of the communication site is rated as part of our study completion survey.
+After a week's data collection marking the end of the first stage, Blaze started to automatically pop-up a window containing a button for a web page with information.  The page included a link to download another tool for code search called Sando \cite{Shepherd2012Sando} and information about using that tool in a video.  The sub-page on navigation contained a page of tutorial on the built-in structured navigation commands in Visual Studio.  The About Blaze page contained details of the point scoring system and background on Blaze's purpose.  The usefulness of the communication site is rated as part of our study completion survey.
 
-In the third wave developers received instant feedback from Blaze on the points they accumulated during the development session.  The up/down arrow provided a simple indicator on whether they were increasing their use of structured navigation or were using it less than their personal historical average.  This final configuration continued until the end of the pilot.  
+In the third stage developers received instant feedback from Blaze on the points they accumulated during the development session.  The up/down arrow provided a simple indicator on whether they were increasing their use of structured navigation or were using it less than their personal historical average.  This final configuration continued until the end of the pilot.  
 
 \subsection{Pilot Participants}
 
@@ -349,15 +359,9 @@ We  assured the team about the confidentiality of the data and the management al
 
 Management wished to have no knowledge of who was participating and took great care to remain detached from the pilot proceedings.  Data at this level of detail has not been collected in ABB development organizations except for a few minutes of video study that might be conducted.  Researchers were careful to create the system so that developers controlled their identification with the data and fortunately, management bought into the necessary anonymity of the participants.
 %Through this approach, we ensured that the developers are performing the task on a very natural environment with out bothering that they are being tracked.
-
-\subsection{Competitive Elements}
-By selecting an intact team, we hope to leverage aspects of motivation such as the Leaderboard to spur feelings of competition among teammates.    The leaderboard was presented so that developers could see their own score in relation to the top 5 people on the leaderboard.  However, the identifier of the other participants was generated as 3 capital letters assigned based on their position on the leaderboard.  Therefore the assigned letters could even change when an individual's ranking changed.  Not knowing who of your colleagues was ahead of you could be a factor in motivation, but also avoids one potential source of conflict in an intact team.
-
-Competitive dynamics may be more effective when teams from different areas can compete as a team against other teams..  This tried and true method both builds esprit de corps and enhances achievement towards the intended outcome.  This study design is potential future work. 
-
 \subsection{Pilot Survey}
 
-The goal for the pilot follow-up survey was to collect feedback on the tool and the effect it had on the developers navigation practices and knowledge.  The survey questions were segmented into portions that evaluate prior and post knowledge and practices for navigation, key steps in the pilot itself, the influence of game elements on their navigation practices, typical tasks and demographic information.
+The goal for the pilot follow-up survey was to collect feedback on the tool and the effect it had on the developers` navigation practices and knowledge.  The survey questions were segmented into portions that evaluate prior and post knowledge and practices for navigation, key steps in the pilot itself, the influence of game elements on their navigation practices, typical tasks and demographic information.
 
 The key questions about this pilot were did we have an effect on knowledge of the developers regarding structured navigation commands.  We asked them to rate their knowledge of structured navigation commands prior to the pilot on a 1-10 scale to understand their baseline.  We asked them to contrast their knowledge after the pilot to assess what they learned from the pilot.
 
@@ -371,18 +375,19 @@ Survey results are discussed in the results section \ref{Results}
 
 \section{Related Work}
 %update and expand
-
+\subsection{Monitoring Practice Studies }
 Johnson and Kou defined Zorro\cite{V:Johnson2007Automated}, a system for detecting whether developers use Test Driven Development techniques based on data from Hackystat.  Zorro divides development activities into episodes delimited by events such as configuration management code check-in, start of a unit test run, or start of a build.  Using the distinct events that developers follow within these episodes, Zorro determines whether the episode followed Test-Driven Development practices per their classic definition of test first - code - test pass, or a different scenario.  In two student-based studies comparing Zorro classifications with a simultaneous observational screen video, Zorro achieved between 70\% \cite{Kou2010Operational} and 89\% \cite{V:Johnson2007Automated} accuracy in classifying episodes into their proper TDD scenarios.  The studies did not, however, attempt to use or evaluate the influence of instant feedback aimed at encouraging participants to follow the classic definition of Test Driven Development.  In our study, we attempt this leap to present data collected directly to developers attempting to influence them to change their practices.
 
 Murphy-Hill, Parnin, and Black \cite{V:MurphyHill2012How} use the Mylyn Monitor to explore whether or not developers use the automated refactoring tools present in Eclipse.  They look for specific refactoring commands in Eclipse and determine the amount of time developers use tools versus hand refactoring the code.  For this study we build a tool that captures the use of all commands within the Visual Studio environment including refactoring, navigation, and edit commands.
 
-Robillard, Coelho and Murphy explore hypotheses around how developers can be more effective at performing a maintenance task \cite{wbsnipes:Robillard2004How}.  Key conclusions are that developers are more more successful finding and fixing bugs when they create a detailed plan for implementing a change, use structured navigation with keyword search or cross-reference search, and only review methods once during their search.  This builds on this work by testing methods for increasing the use of structured navigation in developers everyday practice.
-
-Singer and Schneider demonstrate the use of a message board and points for encouraging students to increase their frequency of commits to the source code repository.\cite{Singer2012It}  The communication mechanism enabled students to see each others' progress and resulted in more frequent commits than baseline.  Participants valued the communication and collaboration aspect and some valued the competition enough to change their opinion on optimum commit frequency.  The subsequent thesis by Singer \cite{Singer2013a} describes results of an experiment conducted across two iterations of a class where active feedback on commits was deployed to one course and another course served as the control group where commit frequency was simply monitored.  Results show an increase in the frequency of commits at a statistically significant level.  This study uses fine grained instrumentation to identify practices used between commits such as structured navigation.
+Robillard, Coelho and Murphy explore hypotheses around how developers can be more effective at performing a maintenance task \cite{wbsnipes:Robillard2004How}.  Key conclusions are that developers are more more successful finding and fixing bugs when they create a detailed plan for implementing a change, use structured navigation with keyword search or cross-reference search, and only review methods once during their search.  This builds on this work by testing methods for increasing the use of structured navigation in developers` everyday practice.
 
 The Pro Metrics (PROM) tool provides a framework for collecting data for further analysis from tools used by developers.\cite{Coman2009Casestudy}  It provides a flexible data model and a plug-in architecture to facilitate collection from different data sources.  Studies conducted using prom include a series of studies by it's creators on trends in time spent Pair Programming \cite{Coman2008Investigating}, benefits of refactoring on productivity \cite{Moser2008Case}, impact of refactoring on re-usability \cite{Moser2006Does}, and prediction of effort \cite{Abrahamsson2007Effort}.  The PROM tool and studies that use it track the time spent editing files and methods from the IDE and code metrics obtained trough source code analysis.  Applying these data to specific research questions such as whether refactoring improves productivity \cite{Moser2008Case} shows the utility of combining automated effort data with code metric data.  Taking a different focus on techniques, our study used more detailed events captured from the IDE  to detect how the user was navigating through the code in addition to knowing how long the editor is open for a particular file.
 
 Murphy-Hill et. al. study a large usage history data set and apply several different algorithms to accurately suggest to users new commands in their environment to use.\cite{MurphyHill2012Improving} Algorithms based on command history performed well particularly when synchronized chronologically with the recipient's usage history. Novice users were better served by recommendation algorithms that did not require a long history, where more expert users benefited from more sophisticated algorithms that included more history. The "Most Widely Used" algorithm that recommends commands based on the collective usage profile of the team performed nearly as well as the more sophisticated algorithms. The paper presents the methodology for making recommendations and the evaluation of the accuracy of the recommendations. Our work goes the next step of evaluating whether a specific recommended practice gets adopted by developers when influenced through gamification methods.
+
+\subsection{Gamification}
+Singer and Schneider demonstrate the use of a message board and points for encouraging students to increase their frequency of commits to the source code repository.\cite{Singer2012It}  The communication mechanism enabled students to see each others' progress and resulted in more frequent commits than baseline.  Participants valued the communication and collaboration aspect and some valued the competition enough to change their opinion on optimum commit frequency.  The subsequent thesis by Singer \cite{Singer2013a} describes results of an experiment conducted across two iterations of a class where active feedback on commits was deployed to one course and another course served as the control group where commit frequency was simply monitored.  Results show an increase in the frequency of commits at a statistically significant level.  This study uses fine grained instrumentation to identify practices used between commits such as structured navigation.
 
 Dubois and Tamburrelli discuss theoretical concepts behind applying gamification to software development. \cite{Dubois2013Understanding} Their approach is to consider how gamification could be applied throughout the software development life-cycle to motivate many practices in different phases.  They provide guidance on assessing gamification in the software development domain that includes analyzing the actors and game mechanics, defining integration with existing tools and processes, and designing the evaluation of results.  Dbois and Tamburrelli demonstrate this guidance using a study of students working on a class project.  Defining a control group and subject group of students, both groups receive the same feedback about their code comments, test coverage, code size, and static analysis rule violations.  The subject group can see each others' rankings while the control group only sees their personal rankings.  Results though inconclusive indicate that competition increases the desired results.  In our study we apply both individual feedback and competitive based feedback (anonymized) to participants and seek to observe a change in their behavior after an intervention.
 
@@ -391,53 +396,113 @@ Dubois and Tamburrelli discuss theoretical concepts behind applying gamification
 
 \subsection{Pilot Data Observations}
 
-\subsubsection{Observations about navigation ratio improvement}
+Blaze logs events from actions the developer takes or actions from Visual Studio itself.
+ The event is basically a GUI event that the program manages with event handlers that are registered with the application to listen for the event.  Blaze becomes a global event handler listening for all events by registering for them in Visual Studio.  
 
-To evaluate whether developers improved their practices for structured navigation we established a metric Navigation ratio as the number as the number of structured navigation events in a day over the number of unstructured navigation events.  
+Blaze records key attributes along with each event in visual studio.  The log captures a time-stamp for each event normalized to GMT.  The name of the event provides a low-level classification.  The event type reflects an internal classification in Blaze.  An optional field for Artifact Reference captures data such as the file-name being edited and the currently selected line number.  Finally an anonymized unique identifier for the user of blaze allows us to investigate differences between developers.
 
-Structured navigation events included:
+Analysis of the log extracts several key information bits from this raw source.  First we classify the event names at a higher level into categories related activities such as Navigating, Reading, Editing, Building, Debugging,  Testing, and using a  known Tool.  
 
-Unstructured navigation events included:
+The second information we extract is aggregating the events along the time-line into sessions.  A session is an abstract concept that groups multiple events into a sequence with a beginning and an end.  Of the many possible ways to define sessions, we chose to define sequences as all the events that transpire before and during a set of edits to a specific file.  When the developer edits a new file, all the events after the last edit to the previous file are part of the new sequence for the new file.  Although not at the method level, this is similar to the say Robillard et. al. generated sequence based on located methods for their study.\cite{wbsnipes:Robillard2004How}
 
-This metric provides a continuous variable allowing us to use statistical data of continuous data to check our hypotheses.  To create the evaluation for each wave, we took the navigation ratio for each developer in each wave.
+\subsubsection{Observations About Developers` Habits}
 
-%The following hypotheses interest us in the current study.  
-%1. Developers using blaze use more structured navigation when they receive instant feedback about their practices
-%2. Developers find the competitive aspect of blaze encourages them to pay more attention to navigation practices
+We are interested in understanding whether developers are consistently using practices that make them inefficient.  One way to check that is to determine whether our measurements are associated with specific developers in the study, in other words, can we independently classify the edits performed by each developer.  If this is possible, then we can discuss whether developer have consistent ways of navigating and understanding for each edit.  Thus the hypothesis is developers have consistent ways of navigating and understanding code while they are making changes.
 
-%To evaluate whether developers use more structured navigation when they receive instant feedback, we monitor the change in navigation ratio over the pilot study period.   Expecting that as developers learn about navigation commands and tools that count towards the score in the second week they will begin using the practices more.  Also expecting that noticing the leaderboard competition will encourage some developers to use the navigation practices more.  What we observed is shown in Figure \ref{fig:navigationaverage} that the structured navigation practice did not increase significantly from the beginning to the end of the study.  Overall, we did not see a significant effect towards increasing navigation ratio for the interventions in wave 2 or wave 3.   
+To test this hypothesis we construct a classification tree using Weka \cite{Hall2009WEKA} with the J48 classifier.  Slicing the data and training the model using 10-fold cross-validation, the model identifies 53\% of the 647 edit sessions with the correct developer among 6 participants.  The tree uses nearly all available fields including time for all categories and time of day for edits in its attempt to associate sessions with their developer generating a Kappa statistic of 0.403  and square root of the relative squared error at 101\%.  
+
+While there is some consistency to how developers work, we cannot say that individual developers are always consistent in their work patterns.  Thus developers are somewhat flexible in the commands they use when navigating and making changes to code and may be more open to adopting new tools and techniques.\
+
+\subsubsection{Observations About Drivers of Edit Session Duration}
+
+We selected navigation as the subject of the pilot game because it was identified by Robillard et. al\cite{wbsnipes:Robillard2004How} as correlated with developers who effectively completed a maintenance task.    Are we focusing on the right area of developers` activity in Visual Studio?
+
+In order to test whether navigation is an important area to address, we construct a hypothesis that use of unstructured navigation is an important factor in developer productivity.  Edit session duration, we assert by opinion, is a factor related to developer productivity though there are many other factors we could consider.  With the data available from Blaze, we can explore the categories of events that correlate with the duration of edit sessions over the period of the pilot.  
+
+Using Weka\cite{Hall2009WEKA}, we performed an attribute selection process to identify the most significant attributes related to edit session duration.  The attribute search method we chose was Greedy Step-wise search that selects attributes based on their correlation with the target and stops adding attributes when the next attribute decreases the correlation.    The process identified the top 5 out of 10 possible categories as follows:
+\begin{enumerate}
+\item Unstructured Navigation
+\item Read
+\item Build
+\item Debug
+\item Edit
+\end{enumerate}
+
+Using R\cite{Rcitation}, we constructed a linear regression model for Unstructured Navigation to determine the correlation with edit duration.  The linear model found a positive correlation with unstructured navigation with a p-value <0.001 on 646 degrees of freedom.  The model with only unstructured navigation had an R-squared of 0.52 showing a good portion of the variation is explained by that category.  In order to have a more acceptable explanation of edit duration, we conducted a multiple linear regression model with both Unstructured Navigation and Read categories. The Read category of events captures the activities the developer is doing to look through the code in the editor.  They are navigation commands that move incrementally like pressing the up/down arrow keys, or moving the scroll-bar an incremental amount.  Combining these two categories results in a linear model with a p-value <0.001 and an R-squared of 0.76, more acceptable for drawing conclusions.  
+
+Conducting an ANOVA analysis shown in Table \ref{editDurationANOVA} for this regression model, we can explore the contribution of Unstructured Navigation and Reading to the model.  The contribution of each variable can be determined by calculating the portion of the total variation that each variable explains.  Unstructured Navigation explains 53\% of the variation.  Out of the remaining variation found by subtracting the amount explained by Unstructured Navigation from the total, Read explains 49\%.  
+
+\begin{table}[!t]
+
+\begin{mdframed}[linecolor=white]
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+                          &  Df  & SSQ & MeanSq &Fval.   & Pr(>F)    \\
+\hline
+Unstr. Nav.& 1 & 0.039& 0.03920 & 1383 & <0.001\\
+\hline
+Read                 & 1 & 0.017 & 0.01741 & 614 & <0.001\\
+\hline
+Residuals                & 645 & 0.018 & 0.00003   &  &  \\
+\hline
+Total		& 647 & 0.074 & 0.05664 & & \\
+\hline
+\end{tabular}
+\caption{ANOVA for Edit Duration}
+\label{editDurationANOVA}
+\end{mdframed}\end{table}
+
+After this analysis we cannot disprove that unstructured navigation is correlated with edit duration, thus it is an important factor in developer productivity.  Combining unstructured navigation with reading describes a larger portion of the overall edit duration and motivates us towards improvements in both navigation methods and code comprehension.  
+
+\subsubsection{Observations About navigation ratio improvement}
+
+To evaluate whether developers improved their practices for structured navigation we established a metric Navigation ratio as the number as the number of structured navigation events in a session or period of time over the number of unstructured navigation events.  
+
+Structured navigation events included: 
+\begin{itemize}
+\item Navigate To (Ctrl+,) is a fuzzy search interface that locates symbols matching your search terms.
+\item Go To Definition (F12) brings up the code where the selected symbol is defined. 
+\item View Call Hierarchy (Ctrl+K Ctrl+T) provides a two way analysis of a symbol's dependencies and uses. 
+\item Class View (Ctrl+W, C) priovides a searchable browser of classes and class hierarchy
+\item Find All References provides a list of refernces for an object
+\item Navigate to Event Handler brings up the event handler from the XAML editor
+\item View Class Diagram generates a class diagram for the project
+\item View Obeject Browser is a search tool for objects in the solution
+\end{itemize}
+
+Unstructured navigation events included selecting a file in an explorer window or selecting the tab for a file, using arrow and page up/down keys to go up/down through a file, scrolling, clicking on a file element, and using any of the built-in find commands such as Find In Files or Quick Find.
+
+During the pilot we staged the deployment of information feedback to developers so they would gradually improve their structured navigation practices.  Our hypothesis was that this instant feedback and information would result in an increase in the use of structured navigation commands in Visual Studio.
+
+To evaluate whether developers use more structured navigation when they receive instant feedback, we monitor the change in navigation ratio over the pilot study period.   Expecting that as developers learn about navigation commands and tools that count towards the score in the second week they will begin using the practices more.  Also expecting that noticing the leaderboard competition will encourage some developers to use the navigation practices more.  
 
 \begin{figure}\begin{mdframed}[linecolor=white]
-	\includegraphics[width=3in]{navigationaverage.pdf}
-	\caption{Average Navigation Ratio by Week by Developer}
+	\includegraphics[width=3in]{navratioboxplot.pdf}
+	\caption{Navigation Ratio by Week}
 	\label{fig:navigationaverage}
 \end{mdframed}\end{figure}
 
-\subsubsection{Observations about efficiency of structured navigation}
-
-Structured navigation sequences are less frequent between edits than unstructured navigation.  To study navigation practices in relationship to edits, we grouped the data into sequences delimited by edits meaning each sequence ends with one or more edits to the source code.   We evaluated the number of navigation commands between edits including clicks on locations in the file, navigating between files, and scrolling the file in the window.  
-
-We found that in x\% of the edit sequences structured navigation was sued.  We compared the time between edits where the sequences involved structured navigation to those that involved unstructured navigation.  The data supports the developer's perception that unstructured navigation is faster than structured navigation particularly when search is used.  We did find that when navigating between class files, developers who use structured navigation reached their destination X\% faster/slower than when using unstructured navigation.  
-
-Search was instrumental for developers who used the search tool where occurrences including search were completed x\% faster or slower than navigating by unstructured commands.
-
-%  Our post pilot survey attempts to shed some light on the reasons behind the inconsistent improvement in navigation ratio.    Even developers whose navigation ratio  was lower than average, used structured navigation occasionally as much as their more frequently using colleagues.  The variation for each individual can be seen in Figure \ref{} .
+What we observed visually in Figure \ref{fig:navigationaverage} is that the structured navigation practice did not increase significantly from the beginning to the end of the study.  Overall, we did not see a significant effect towards increasing navigation ratio for the interventions in week 2 or week 3.   Weeks 4 and 5 that follow the formal period of study show the navigation ratio continues in a similar distribution pattern.
 
 \subsection{Pilot Survey Results}
 
-On the assessment of structured navigation knowledge, half of the participants replied that they had very good prior knowledge about structured navigation and they use structured navigation as much as possible.  Other half of the participants have some understanding on structured navigation use it some of the time. While analyzing the points they scored with Blaze tool, we observed that the participants who mentioned that they have good knowledge in structured navigation are on top of the points table. 
+Our post pilot survey attempts to shed some light on the reasons behind the consistency in navigation ratio over the pilot.    
+
+On the assessment of structured navigation knowledge, half of the participants replied that they had very good prior knowledge about structured navigation and they use structured navigation as much as possible.  Other half of the participants have some understanding on structured navigation use it some of the time. Even developers whose navigation ratio  was lower than average, used structured navigation occasionally as much as their more frequently using colleagues.  While analyzing the points they scored with Blaze tool, we observed that the participants who mentioned that they have good knowledge in structured navigation are on top of the points table. 
 %the following statement is not supported with data unless you have additional data?
 Incidentally, while cross verifying their performance on the coding, they are better productive compared to the participants on the bottom of points table.
+\begin{figure}\begin{mdframed}[linecolor=white]
+	\includegraphics[width=3in]{ElementInfluenceChart.pdf}
+	\caption{Influence of Feedback Elements}
+	\label{fig:elementInfluence}
+\end{mdframed}\end{figure}
 
-Assessing the game elements of Blaze that influenced them, four out of six said the leaderboard influenced them "a lot" and all rated the leaderboard as having some influence.  Three out of six  said their individual point score influenced them "a lot" and all said the score had some influence.  The element with mixed ratings was a graphical indicator on whether they were improving over past use of structured navigation commands.  The indicator received the influencing "a lot" rating from one participant and a "not at all" influence rating from one participant with the rest having some influence.  The results indicate the more obvious and more clearly comparative information in the leaderboard was the strongest influence for developers.
+The chart in figure \ref{fig:elementInfluence} shows how the individual feedback features influenced developers to think about using structured navigation.  Four out of six developers said the leaderboard influenced them "a lot" and all rated the leaderboard as having some influence.  Three out of six  said their individual point score influenced them "a lot" and all said the score had some influence.  The element with mixed ratings was a graphical indicator on whether they were improving over past use of structured navigation commands.  The indicator received the influencing "a lot" rating from one participant and a "not at all" influence rating from one participant with the rest having some influence.  The results indicate the more obvious and more clearly comparative information in the leaderboard was the strongest influence for developers.
 
 The participants requested that the system to provide more feedback on tips to help them increase their score. They indicated that more obvious feedback such as hints that pop-up when they launch the tool would help them more than passively provided information.  Their desire for personal metrics and historical views of the data encourages us that this detailed level of measurement and analysis is perceived as helpful.  Features to meet these requests are part of future work.    
 
-Comparing the survey demographic results with game scores reveals that years of experience did not have a strong influence over scores.  All developers in the study had 7 or more years experience and one person with 8 years experience used structured navigation enough to obtain second place nearly matching a 10 year experienced colleague.    
-
-Those who rated their knowledge of structured navigation commands highly, did better in the points than those who rated their prior knowledge lower.  This could indicate that using structured navigation is somewhat of a habit that takes longer to change.  There was also feedback that people wanted more information presented to them by the tool on what commands to use, so they may not have closed the knowledge gap during the pilot.  
-
-Those who worked in code that they wrote tended to use less structured navigation having a lower navigation ratio.  Those who had recently learned the code they were working in had more consistent use of structured navigation and one of them used Sando the most of the pilot participants.  Familiarity with the code thus may influence the use of structured navigation since when you maintain a mental map of the code, it may be more intuitive for you to click your way to it rather than use a search tool.  This may be an opportunity for future study to determine whether some developers maintain a somewhat abstract map of the code that makes it easier for them to click to it rather than recall keywords for a search.  %Could this be similar to how people navigate to software commands  in a menu structure more easily than using command line interfaces.
+%Though not significant, there is a loose correlation between those who rated their prior knowledge of structured navigation commands highly and their point scores.   
+There was also feedback that people wanted more information presented to them by the tool on what structured navigation commands to use, so they may not have closed the knowledge gap during the pilot.  
 
 \section{Threats to Validity}
 There are several threats to validity for this result.  By making the purpose of our measurement and contest known although without details we may have triggered the participants to think about navigation commands they use before establishing a baseline.  We attempt to control for this by comparing the pilot participants' data to data from Blaze users who are knowledgeable Visual Studio developers but did not receive the interventions.  Another threat is the intact team represents people with different backgrounds and experience levels who may have established habits for navigating through source code.  We attempt to control for this by asking post survey questions of the participants about their familiarity with the code they work in and their experience levels.  The threat of non- generalizable of results remains particularly because the pilot was conducted within an intact team in a single industrial site in India. As the pre-study questionnaire shows, the developer's desirability for a gamification type of intervention vary by country.
@@ -456,7 +521,7 @@ The authors wish to thank ABB and the pilot participants for their support of th
 % produce the bibliography for the citations in your paper.
 \bibliographystyle{abbrv}
 \balance
-\bibliography{paper_id1} 
+\bibliography{../mousetap} 
  % sigproc.bib is the name of the Bibliography in this case
 % You must have a proper ".bib" file
 %  and remember to run:
