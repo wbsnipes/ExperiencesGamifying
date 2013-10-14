@@ -202,12 +202,19 @@ Emerson Murphy-Hill
 
 \maketitle
 \begin{abstract}
-As software development practices evolve, toolsmiths face the continuous challenge of communicating new practices and tools to the community.  In addition to training, discussing, and presenting software engineering practices and tools, we propose a method to both motivate and monitor their adoption through a tool embedded in the Integrated Development Environment (IDE).  
 
-Blaze monitors developer practice and tool use over the long term and reports the lasting change a communication effort makes in everyday habits.  Embedding Blaze in the developer`s work environment as a Visual Studio extension captures developer work patterns while giving feedback to users on their practices.   Blaze encourages everyone to use the new practices by assigning points to specific commands and tools.  
- With a rich data source, we evaluate developer practices, define metrics that give individual feedback, and create an environment for developers to see how they are doing compared with their teammates.  
 
-Data collected from the pilot group show a dichotomy of navigation and code understanding practices used by developers even the same developer in different situations.  We observed that the duration of an edit session is more correlated with categories of activity that benefit from improved practices and tools. The Blaze tool was well received by most participants, however, navigation practices were not significantly affected by the Blaze feedback mechanism.  We conclude that more proactive interventions are necessary to encourage developers to change their code navigation habits.
+As software development practices evolve, toolsmiths face the continuous challenge of communicating new practices and tools to the community.   We tested an idea with industrial software developers that adding game-like feedback to the development environment focused on improving practices and tool use would improve adoption of tools and practices for code navigation.  We conducted this study in three stages, the pre-study to validate our ideas, a pilot of a tool called Blaze that implements some game features to motivte better navigation practices and use of a code search tool.  We found that developers used the tool willingly and their feedback indicated the Blaze tool and game made them think about navigation practices more.  We also learned that demonstrating significant improvement can be difficult and that developers want more proactive messages and recomendations on ways they can improve.
+%
+% In addition to training, discussing, and presenting software engineering practices and tools, we demonstrate a method to both motivate and monitor their adoption through a tool embedded in the Integrated Development Environment (IDE).  
+%
+%We determine through a survey of 130 developers the things we can do to motivate them to adopt 
+%Blaze monitors developer practice and tool use over the long term and reports the lasting change a tool deployment or communication effort makes in everyday habits. 
+%
+% Embedding Blaze in the developer`s work environment as a Visual Studio extension captures developer work patterns while giving feedback to users on their practices.   Blaze encourages everyone to use the new practices by assigning points to specific commands and tools.  
+% With a rich data source, we evaluate developer practices, define metrics that give individual feedback, and create an environment for developers to see how they are doing compared with their teammates.  
+%
+%Data collected from the pilot group show a dichotomy of navigation and code understanding practices used by developers even the same developer in different situations.  We observed that the duration of an edit session is more correlated with categories of activity that benefit from improved practices and tools. The Blaze tool was well received by most participants, however, navigation practices were not significantly affected by the Blaze feedback mechanism.  We conclude that more proactive interventions are necessary to encourage developers to change their code navigation habits.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -227,12 +234,13 @@ Enter the toolsmith,  who responds to challenges faced by software developers by
 
 We envisioned a tool in our prior work that would motivate developers to adopt new practices or tools by providing constant feedback and allowing them to compare their improvements to how their peers are doing  \cite{Snipes2013Towards}.  This tool creates a competitive game that gives continuous feedback to the developer on adopting the improved practice.  The more they change their practices to adopt new techniques or tools, the higher they score in the game. 
 
-Yes gamification, the incorporation of game elements into an activity that people do not typcially consider a game\cite{2013Oxford}.  Why would software developers writing serious software be interested in this?  Our first step was to challenge this question through a survey that queried both whether developers would be interested in gamifying their workspace and what aspects of that space would be most interesting to them.
+Gamification is the incorporation of game elements into an activity that people do not typcially consider a game\cite{2013Oxford}.  Why would software developers writing serious software be interested in this?  Our first step was to challenge this question through a pre-study survey that queried both whether developers would be interested in gamifying their workspace and what aspects of that space would be most interesting to them.
 
-With these questions answered, we identified a set of practices and defined a game meeting expectations from the developers feedback.  The game, implemented in a Visual Studio add-in called Blaze, integrates into the Visual Studio workspace and establishes a light anonymous competition between developers to improve their navigation practices. 
+After confirming a good level of interest from the pre-study survey, we identified a set of practices and defined a game meeting expectations from the developers feedback.  The game, implemented in a Visual Studio add-in called Blaze, integrates into the Visual Studio workspace and establishes an anonymous competition between developers to improve their navigation practices. 
 
-During the pilot of Blaze we observed the variation in developer navigation practices and identified some potential reasons for this variation.  We evaluated developer's acceptance of game elements in the tool and their desires for additional functionality.  While further data is required to assess the impact of the tool, the initial developer acceptance encourages an expanded pilot.
-%state the contribution
+During the pilot of Blaze we observed the variation in developer navigation practices and identified some potential reasons for this variation.  We conducted post-pilot survey and feedback sessions that evaluated developers` acceptance of game elements in the tool and their desires for additional functionality.  
+
+This work contributes an assessment of developers` response to game-like elments in the promotion of new tools and practices.  We assess their early response through a survey of 130 software developers.  Then conduct a pilot of a tool, Blaze, that introduces game elements into the developer's IDE focused on improving navigation practices.  With the pilot feedback we determine the acceptance, influence, and effect of deploying the Blaze tool in the pilot group.
 
 The rest of the paper is organized as follows:  Section 2 reviews the preliminary survey-based assessment, Section 3 Discusses the design considerations for developing the Blaze tool/game, Section 4 Discusses the design of the study and participant selection, Section 5 is Related work, Section 6 results from the pilot, Section 7 Threats to Validity, and Section 8 has our Conclusions.
 
@@ -324,7 +332,7 @@ Developers were asked to rank awards for different actions by which they would f
 %\end{enumerate}
 
 %distinguish pilot from pre-study.  How does gamification apply?
-The pilot evaluates the aspects of game implementation as well as the study of the results of their results. Here we discuss how the aspects of selecting a practice suitable for gamification, designing the game, and competitive element considerations.
+The pilot evaluates the aspects of game implementation as well as the study of the results of their results. Here we discuss  relevant aspects of selecting a practice suitable for gamification, designing the game, and competitive element considerations.
 
 \subsection{Select a Practice}
 %transition
